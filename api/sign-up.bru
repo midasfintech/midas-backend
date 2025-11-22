@@ -1,0 +1,30 @@
+meta {
+  name: sign-up
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{SUPABASE_URL}}/auth/v1/signup
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "hello@timrekelj.si",
+    "password": "Password123!",
+    "data": {
+      "first_name": "Tim",
+      "last_name": "Rekelj",
+      "date_of_birth": "2002-05-22",
+      "net_monthly_income": 2000,
+      "employment": "self_employed"
+    }
+  }
+  
+}
+
+script:post-response {
+  bru.setEnvVar("AUTH_TOKEN", res.body.access_token);
+}

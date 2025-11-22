@@ -1,0 +1,16 @@
+meta {
+  name: get_sessions_with_progress
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{SUPABASE_URL}}/rest/v1/rpc/get_sessions_with_progress?user_id=6446ae11-f81d-4bfe-9efc-3cc1ee94aa6b
+  body: none
+  auth: inherit
+}
+
+params:query {
+  user_id: 6446ae11-f81d-4bfe-9efc-3cc1ee94aa6b
+  ~session_ids: ALL
+}

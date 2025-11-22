@@ -1,0 +1,21 @@
+meta {
+  name: revenuecat-webhook
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{SUPABASE_URL}}/functions/v1/revenuecat-webhook
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{SUPABASE_ANON_KEY}}
+}
+
+body:json {
+  {
+    "user_id": "6446ae11-f81d-4bfe-9efc-3cc1ee94aa6b"
+  }
+}
