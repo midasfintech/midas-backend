@@ -1,0 +1,15 @@
+meta {
+  name: users_chapters_ext
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{SUPABASE_URL}}/rest/v1/users_chapters_ext?select=*
+  body: none
+  auth: inherit
+}
+
+params:query {
+  select: *
+}

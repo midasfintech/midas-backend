@@ -4,7 +4,7 @@ LANGUAGE plpgsql
 SECURITY DEFINER
 AS $$
 BEGIN
-    INSERT INTO public.users_data (id, first_name, last_name, date_of_birth, net_monthly_income, employment)
+    INSERT INTO public.users_data (id, first_name, last_name, date_of_birth, net_monthly_income, monthly_investment_amount, employment)
     VALUES (
         new.id,
         new.raw_user_meta_data->>'first_name',

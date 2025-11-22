@@ -1,0 +1,15 @@
+meta {
+  name: users_lessons_ext
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{SUPABASE_URL}}/rest/v1/users_lessons_ext?select=*
+  body: none
+  auth: inherit
+}
+
+params:query {
+  select: *
+}
