@@ -7,8 +7,10 @@ CREATE TABLE users_data (
     employment TEXT NOT NULL,
     date_of_birth DATE NOT NULL,
     knowledge public.knowledge DEFAULT 'beginner',
-    ethical_investing boolean NOT NULL DEFAULT false,
-    created_at TIMESTAMP DEFAULT NOW()
+    ethical_investing BOOLEAN NOT NULL DEFAULT false,
+    savings_account INTEGER NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
 );
 ALTER TABLE public.users_data ADD FOREIGN KEY ("id") REFERENCES auth.users ("id") ON DELETE CASCADE;
 
@@ -55,3 +57,27 @@ CREATE TABLE users_lessons (
 );
 ALTER TABLE users_lessons ADD FOREIGN KEY ("user_id") REFERENCES auth.users ("id") ON DELETE CASCADE;
 ALTER TABLE users_lessons ADD FOREIGN KEY ("lesson_id") REFERENCES lessons ("id") ON DELETE CASCADE;
+
+CREATE TABLE users_investments (
+    user_id UUID PRIMARY KEY,
+    stocks INTEGER NOT NULL DEFAULT 34,
+    etfs INTEGER NOT NULL DEFAULT 33,
+    savings_account INTEGER NOT NULL DEFAULT 33,
+    invested_stocks TEXT[],
+    invested_etfs TEXT[],
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+ALTER TABLE users_investments ADD FOREIGN KEY ("user_id") REFERENCES public.users_data ("id") ON DELETE CASCADE;
+
+CREATE TABLE investment_symbols (
+    symbol TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    investment_symbol_type public.investment_symbol_type NOT NULL,
+    price_history JSONB,
+    quote_data JSONB,
+    ethics public.ethics,
+    ai_score INTEGER,
+    ai_explanation TEXT,
+    updated_at TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT NOW()
+);

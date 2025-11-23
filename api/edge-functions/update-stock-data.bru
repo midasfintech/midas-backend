@@ -1,0 +1,19 @@
+meta {
+  name: update-stock-data
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{SUPABASE_URL}}/functions/v1/update-stock-data
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "answers": [
+      1, 2, 1, 2, 2, 2, 2, 1, 3, 2, 0, 2, 1, 0, 1
+    ]
+  }
+}

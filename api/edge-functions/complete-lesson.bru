@@ -1,0 +1,18 @@
+meta {
+  name: complete-lesson
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{SUPABASE_URL}}/functions/v1/complete-lesson
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "lesson_id": "294da240-f0c5-495b-aa74-e2f8ff3ef2e2",
+    "answer": 1
+  }
+}

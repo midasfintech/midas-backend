@@ -14,6 +14,17 @@ BEGIN
         (new.raw_user_meta_data->>'monthly_investment_amount')::numeric,
         new.raw_user_meta_data->>'employment'
     );
+
+    INSERT INTO public.users_investments (user_id, stocks, etfs, savings_account, invested_stocks, invested_etfs)
+    VALUES (
+        new.id,
+        100,
+        0,
+        0,
+        ARRAY['NVDA']::text[],
+        ARRAY[]::text[]
+    );
+
     RETURN NEW;
 END;
 $$;

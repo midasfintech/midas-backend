@@ -90,3 +90,14 @@ VALUES
         'Skupni portfelj vlagateljev',
         'Državno zagotovilo'
     ], 2);
+
+INSERT INTO investment_symbols (symbol, name, ethics) VALUES
+('NVDA', 'NVIDIA Corporation', 'good'),
+('TSLA', 'Tesla, Inc.', 'good'),
+('INTC', 'Intel Corporation', 'neutral'),
+('SOFI', 'SoFi Technologies, Inc.', 'good'),
+('AMD', 'Advanced Micro Devices, Inc.', 'neutral'),
+('GOOGL', 'Alphabet Inc.', 'neutral'),
+('AMZN', 'Amazon.com, Inc.', 'bad'),
+('PLTR', 'Palantir Technologies Inc.', 'bad'),
+('ORCL', 'Oracle Corporation', 'neutral');

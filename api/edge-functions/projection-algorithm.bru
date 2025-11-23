@@ -1,0 +1,19 @@
+meta {
+  name: projection-algorithm
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{SUPABASE_URL}}/functions/v1/projection-algorithm
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "answers": [
+      1, 2, 1, 2, 2, 2, 2, 1, 3, 2, 0, 2, 1, 0, 1
+    ]
+  }
+}
